@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
-import beepbeep.pixelsforredditx.R
+
 import beepbeep.pixelsforredditx.about.AboutActivity
 import beepbeep.pixelsforredditx.common.SnackbarOnlyOne
 import beepbeep.pixelsforredditx.extension.*
@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main._navigation_night_mode.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.navigational_parent.*
 import javax.inject.Inject
+
 
 class HomeActivity : DaggerAppCompatActivity() {
     private val adapter = HomeAdapter()
@@ -80,9 +81,9 @@ class HomeActivity : DaggerAppCompatActivity() {
         override fun showNoNetworkErrorSnackbar() {
             noNetworkSnackbar.show(
                 view = homeRootView,
-                resId = R.string.no_network,
+                resId = beepbeep.pixelsforredditx.R.string.no_network,
                 duration = Snackbar.LENGTH_INDEFINITE,
-                actionResId = R.string.retry,
+                actionResId = beepbeep.pixelsforredditx.R.string.retry,
                 actionCallback = {
                     retrySubject.onNext(Unit)
                 }
@@ -93,7 +94,7 @@ class HomeActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setupTheme()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.navigational_parent)
+        setContentView(beepbeep.pixelsforredditx.R.layout.navigational_parent)
 
         navDrawerView = NavigationDrawerView(homeDrawerLayout)
         val viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java) //getViewModel<HomeViewModel>().also { lifecycle.addObserver(it) }
@@ -118,9 +119,9 @@ class HomeActivity : DaggerAppCompatActivity() {
 
     private fun setupTheme() {
         if (ThemePreference.getThemePreference(this)) {
-            setTheme(R.style.AppThemeDark)
+            setTheme(beepbeep.pixelsforredditx.R.style.AppThemeDark)
         } else {
-            setTheme(R.style.AppTheme)
+            setTheme(beepbeep.pixelsforredditx.R.style.AppTheme)
         }
     }
 
@@ -128,7 +129,7 @@ class HomeActivity : DaggerAppCompatActivity() {
         selectedSubredditToolbar.text = RedditPreference.getSelectedSubreddit(this)
         adapter.apply {
             homeList.adapter = this
-            homeList.addItemDecoration(DividerItemDecoration(homeList.context, DividerItemDecoration.VERTICAL).apply { setDrawable(resources.getDrawable(R.drawable.recycler_view_divider)) })
+            homeList.addItemDecoration(DividerItemDecoration(homeList.context, DividerItemDecoration.VERTICAL).apply { setDrawable(resources.getDrawable(beepbeep.pixelsforredditx.R.drawable.recycler_view_divider)) })
             homeList.initBottomDetectListener()
         }
         nightModeSwitch.isChecked = ThemePreference.getThemePreference(this)

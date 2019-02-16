@@ -1,6 +1,7 @@
 package beepbeep.pixelsforredditx.di
 
 import beepbeep.pixelsforredditx.home.HomeActivity
+import beepbeep.pixelsforredditx.home.di.HomeModule
 import beepbeep.pixelsforredditx.ui.comment.CommentActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

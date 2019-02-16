@@ -1,4 +1,4 @@
-package beepbeep.pixelsforredditx.di
+package beepbeep.pixelsforredditx.home.di
 
 import beepbeep.pixelsforredditx.PixelApplication
 import beepbeep.pixelsforredditx.home.HomeRepo
