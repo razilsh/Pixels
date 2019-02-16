@@ -1,10 +1,9 @@
-package beepbeep.pixelsforredditx.home.di
+package beepbeep.pixelsforredditx.ui.home.di
 
 import beepbeep.pixelsforredditx.PixelApplication
-import beepbeep.pixelsforredditx.home.HomeRepo
+import beepbeep.pixelsforredditx.ui.home.HomeRepo
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
 class HomeModule() {

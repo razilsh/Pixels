@@ -1,4 +1,4 @@
-package beepbeep.pixelsforredditx.home
+package beepbeep.pixelsforredditx.ui.home
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import beepbeep.pixelsforredditx.about.AboutActivity
 import beepbeep.pixelsforredditx.common.SnackbarOnlyOne
 import beepbeep.pixelsforredditx.extension.*
-import beepbeep.pixelsforredditx.home.navDrawer.NavigationDrawerView
+import beepbeep.pixelsforredditx.ui.home.navDrawer.NavigationDrawerView
 import beepbeep.pixelsforredditx.preference.RedditPreference
 import beepbeep.pixelsforredditx.preference.ThemePreference
 import beepbeep.pixelsforredditx.ui.comment.CommentActivity

@@ -1,7 +1,6 @@
-package beepbeep.pixelsforredditx.home
+package beepbeep.pixelsforredditx.ui.home
 
 import android.content.Context
-import android.content.SharedPreferences
 import beepbeep.pixelsforredditx.preference.RedditPreference
 import com.worker8.redditapi.RedditApi
 import io.reactivex.Scheduler
