@@ -3,7 +3,6 @@ package beepbeep.pixelsforredditx.home
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import beepbeep.pixelsforredditx.R
@@ -15,15 +14,19 @@ import beepbeep.pixelsforredditx.preference.RedditPreference
 import beepbeep.pixelsforredditx.preference.ThemePreference
 import beepbeep.pixelsforredditx.ui.comment.CommentActivity
 import com.google.android.material.snackbar.Snackbar
+import dagger.android.support.DaggerAppCompatActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main._navigation_night_mode.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.navigational_parent.*
+import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : DaggerAppCompatActivity() {
     private val adapter = HomeAdapter()
+    @Inject
+    lateinit var homeRepo: HomeRepo
     private val noNetworkSnackbar = SnackbarOnlyOne()
     private val disposableBag = CompositeDisposable()
     private val retrySubject: PublishSubject<Unit> = PublishSubject.create()
@@ -96,7 +99,7 @@ class HomeActivity : AppCompatActivity() {
         val viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java) //getViewModel<HomeViewModel>().also { lifecycle.addObserver(it) }
         viewModel.apply {
             input = homeInput
-            repo = HomeRepo(this@HomeActivity, RedditPreference.getSelectedSubreddit(this@HomeActivity))
+            repo = homeRepo
             viewAction = homeViewAction
         }
         lifecycle.addObserver(viewModel)

@@ -7,11 +7,11 @@ import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class HomeRepo(val context: Context, subreddit: String = "pics") {
+class HomeRepo(val context: Context) {
     var redditApi: RedditApi
 
     init {
-        redditApi = RedditApi(subreddit)
+        redditApi = RedditApi(RedditPreference.getSelectedSubreddit(context))
     }
 
     fun getMorePosts() = redditApi.getMorePosts()
