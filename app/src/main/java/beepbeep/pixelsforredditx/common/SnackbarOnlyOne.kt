@@ -1,7 +1,9 @@
 package beepbeep.pixelsforredditx.common
 
+import android.graphics.Color
 import android.view.View
 import androidx.annotation.StringRes
+import beepbeep.pixelsforredditx.extension.setTextColor
 import com.google.android.material.snackbar.Snackbar
 
 /**
@@ -14,7 +16,7 @@ class SnackbarOnlyOne {
         if (snackbar != null) {
             snackbar?.show()
         }
-        Snackbar.make(view, resId, duration)
+        Snackbar.make(view, resId, duration).setTextColor(Color.WHITE)
             .apply {
                 setAction(actionResId) { actionCallback.invoke() }
                 addCallback(object : Snackbar.Callback() {
